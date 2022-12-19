@@ -1,0 +1,14 @@
+.header {
+  padding-top: 4rem;
+  margin-bottom: 2.5rem;
+
+  .logo {
+    color: $main-bg;
+    letter-spacing: $spacing-1;
+  }
+
+  .flex {
+    @include flex;
+    justify-content: space-between;
+  }
+}

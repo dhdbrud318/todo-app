@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+$ff-main: "Josefin Sans", sans-serif;
+
+body {
+  font-family: $ff-main;
+  font-weight: 400;
+  font-size: $fs-rg;
+}
+
+h1 {
+  font-size: $fs-lg;
+}
+
+input {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}

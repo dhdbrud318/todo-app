@@ -1,0 +1,24 @@
+.list {
+  @include inputcontainer;
+  border-bottom: 1px solid $main-ele;
+
+  .list-container {
+    @include elebase($padding: 0 1.5em 0 4em);
+  }
+
+  .flex {
+    @include flex;
+  }
+
+  .list-content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-basis: 90%;
+
+    &.completed {
+      color: $main-ele-txt;
+      text-decoration-line: line-through;
+    }
+  }
+}

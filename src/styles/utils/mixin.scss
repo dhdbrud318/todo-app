@@ -1,0 +1,62 @@
+@mixin background($path) {
+  background-image: url($path);
+  background-repeat: no-repeat;
+  position: center;
+  size: cover;
+}
+
+@mixin flex($direction: row, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+  place-items: center;
+}
+
+@mixin grid($gap: 0) {
+  display: grid;
+  gap: $gap;
+}
+
+@mixin inputcontainer() {
+  position: relative;
+}
+
+@mixin elebase(
+  $type: none,
+  $background: #{$main-ele-bg},
+  $padding: 0 0 0 4em,
+  $width: 100%
+) {
+  background-color: $background;
+  width: $width;
+  height: $input-height;
+  padding: $padding;
+  @if $type == input {
+    cursor: auto;
+  } @else if $type == btn {
+    cursor: pointer;
+  }
+}
+
+@mixin btn(
+  $font-size: #{$fs-sm},
+  $color: #{$main-ele-txt},
+  $weight: #{$fw-400},
+  $hover,
+  $active: #{$main-ele-txt}
+) {
+  font-size: $font-size;
+  color: $color;
+  font-weight: $weight;
+  cursor: pointer;
+  transition: color ease-in 0.2s;
+
+  &:hover {
+    color: $hover;
+  }
+
+  &:focus,
+  &:active {
+    color: $active;
+  }
+}

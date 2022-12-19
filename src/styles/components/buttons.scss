@@ -1,0 +1,90 @@
+.status-btn {
+  @include btn($weight: $fw-700, $hover: $main-txt, $active: $primary-blue);
+
+  &.active {
+    color: $primary-blue;
+  }
+}
+
+.clear-btn {
+  @include btn($hover: $main-txt);
+}
+
+.check-btn {
+  position: absolute;
+
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding-left: 1.5rem;
+  cursor: pointer;
+
+  .checkIcon {
+    transition: all ease-in-out 0.2s;
+    cursor: pointer;
+    background: pink;
+    background: -webkit-radial-gradient(
+      33% 100% circle,
+      #515ecf 4%,
+      #9b36b7 30%,
+      #d92e7f 62%,
+      #f15245 85%,
+      #fed373
+    );
+    background: radial-gradient(
+      circle at 33% 100%,
+      #ff3be7 4%,
+      #ff3be7 28%,
+      #03ffe8 62%,
+      #f15245 85%,
+      #fed373
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: -webkit-radial-gradient(
+        33% 100% circle,
+        #fed373 4%,
+        #f15245 30%,
+        #d92e7f 62%,
+        #9b36b7 85%,
+        #515ecf
+      );
+      background: radial-gradient(
+        circle at 33% 100%,
+        #fed373 4%,
+        #f15245 30%,
+        #d92e7f 62%,
+        #9b36b7 85%,
+        #515ecf
+      );
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+.cross-btn {
+  opacity: 0;
+  transition: opacity ease-in-out 0.3s;
+  height: 100%;
+  cursor: pointer;
+  flex: 1;
+
+  &.flex {
+    @include flex;
+    justify-content: right;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 45em) {
+    opacity: 1;
+  }
+}

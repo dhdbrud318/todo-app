@@ -1,0 +1,35 @@
+.board {
+  border-radius: $general-border;
+  overflow: hidden;
+  box-shadow: $box-shadow;
+
+  .board-body {
+    max-height: 25rem;
+    overflow-y: scroll;
+  }
+
+  @media (max-width: $layout-breakpoint-sm) {
+    .board-body {
+      max-height: 20rem;
+    }
+  }
+
+  .board-footer {
+    height: 50px;
+    font-size: $fs-sm;
+    background: $main-ele-bg;
+
+    padding-inline: 1.5rem;
+
+    &.flex {
+      @include flex;
+      justify-content: space-between;
+    }
+
+    .btn-container {
+      &.flex {
+        @include flex($gap: 1em);
+      }
+    }
+  }
+}

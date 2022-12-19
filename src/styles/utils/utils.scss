@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  @include background("../../assets/images/bg-desktop-light.jpg");
+
+  @media (max-width: $layout-breakpoint-sm) {
+    @include background("../../assets/images/bg-mobile-light.jpg");
+  }
+}
+
+img,
+svg,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+@media (max-width: 45em) {
+  img,
+  svg {
+    transform: scale(0.75);
+  }
+}
+
+input,
+button,
+select {
+  all: unset;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.invisible {
+  display: none !important;
+}

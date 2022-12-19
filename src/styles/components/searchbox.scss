@@ -1,0 +1,20 @@
+.searchbox {
+  @include inputcontainer;
+  border: 1px solid transparent;
+  border-radius: $general-border;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+
+  .flex {
+    @include flex;
+  }
+
+  input {
+    @include elebase($type: input, $padding: 0 1.5em 0 4em);
+  }
+
+  input::placeholder {
+    color: $main-ele-txt;
+  }
+}

@@ -1,0 +1,20 @@
+// general setting
+@import "./general/variables.scss";
+@import "./general/colors.scss";
+@import "./general/typography.scss";
+
+// Layouts
+@import "./layouts/container.scss";
+@import "./layouts/app.scss";
+
+// utils
+@import "./utils/mixin.scss";
+@import "./utils/utils.scss";
+
+// components
+@import "./components/header.scss";
+@import "./components/searchbox.scss";
+@import "./components/board.scss";
+@import "./components/list.scss";
+@import "./components/buttons.scss";
+@import "./components/total.scss";
