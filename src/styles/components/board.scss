@@ -1,9 +1,9 @@
 .board {
-  border-radius: $general-border;
-  overflow: hidden;
   box-shadow: $box-shadow;
 
   .board-body {
+    border-radius: $general-border;
+    overflow: hidden;
     max-height: 25rem;
     overflow-y: scroll;
   }
@@ -15,7 +15,9 @@
   }
 
   .board-footer {
-    height: 50px;
+    border-radius: $general-border;
+
+    height: $input-height;
     font-size: $fs-sm;
     background: $main-ele-bg;
 
@@ -27,8 +29,33 @@
     }
 
     .btn-container {
+      border-radius: $general-border;
+
       &.flex {
         @include flex($gap: 1em);
+      }
+    }
+  }
+
+  @media (max-width: $layout-breakpoint-mid) {
+    .board-footer {
+      position: relative;
+      z-index: 0;
+
+      .btn-container {
+        position: absolute;
+        background: $main-ele-bg;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 2;
+        height: $input-height;
+        box-shadow: $box-shadow;
+        transform: translateY(calc(100% + 1rem));
+
+        &.flex {
+          justify-content: center;
+        }
       }
     }
   }
