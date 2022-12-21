@@ -18,15 +18,5 @@
     "id": "3",
     "todo": "Read for 1 hour",
     "status": "active"
-  },
-  {
-    "id": "4",
-    "todo": "Pick up groceries",
-    "status": "active"
-  },
-  {
-    "id": "5",
-    "todo": "Complete Todo App on Frontend Mentor",
-    "status": "active"
   }
 ]

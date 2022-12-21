@@ -1,20 +1,24 @@
 import React from "react";
 
-import Cross from "./cross";
 import Check from "./check";
+import IconButton from "./iconButton";
+
+import cross from "../../assets/images/icon-cross.svg";
 
 const List = ({
   id,
   index,
   status,
   content,
-  exist = true,
+  exist,
   onCrossClick,
   onCheckClick,
   onDragStart,
   onDragEnter,
   onDragEnd,
 }) => {
+  const crossSrc = <img src={cross} alt="Cross Button" />;
+
   return (
     <div
       className="list"
@@ -33,10 +37,21 @@ const List = ({
         >
           {content}
         </p>
-        {exist && <Cross onClick={onCrossClick} index={id} />}
+        {exist && (
+          <IconButton
+            iconName="cross"
+            iconSrc={crossSrc}
+            onClick={onCrossClick}
+            value={id}
+          />
+        )}
       </div>
     </div>
   );
+};
+
+List.defaultProps = {
+  exist: true,
 };
 
 export default List;

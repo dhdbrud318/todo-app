@@ -15,6 +15,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     flex-basis: 90%;
+    transition: color ease-in-out 0.25s;
 
     &.completed {
       color: $main-ele-txt;

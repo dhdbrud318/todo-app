@@ -3,13 +3,14 @@
 $ff-main: "Josefin Sans", sans-serif;
 
 body {
+  @include font-size($p-font-sizes);
+
   font-family: $ff-main;
   font-weight: 400;
-  font-size: $fs-rg;
 }
 
 h1 {
-  font-size: $fs-lg;
+  @include font-size($h-font-sizes);
 }
 
 input {

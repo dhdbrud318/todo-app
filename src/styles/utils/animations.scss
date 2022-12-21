@@ -1,0 +1,17 @@
+@keyframes pulse {
+  25% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1.125);
+  }
+}
+
+@keyframes deploy {
+  15% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 100%;
+  }
+}

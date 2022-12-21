@@ -1,15 +1,18 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 
 import Searchbox from "../components/searchbox";
 import Board from "../components/board";
 import Header from "../components/header";
 
 import todos from "../demo.json";
+import ThemeContext from "../utils/themeContext";
 
 function Homepage() {
   const [data, setData] = useState(todos);
   const [statusOption, setStatusOption] = useState("all");
   const [filteredData, setFilteredData] = useState([]);
+
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const dragItem = useRef();
   const dragOverItem = useRef();
@@ -25,6 +28,11 @@ function Homepage() {
         : data.filter((item) => item.status === statusOption);
 
     setFilteredData(filtered);
+  };
+
+  const handleTheme = ({ currentTarget: input }) => {
+    if (input.value === "light") setTheme("dark");
+    else setTheme("light");
   };
 
   const handleSearch = (e) => {
@@ -72,12 +80,10 @@ function Homepage() {
 
   const handleDragStart = ({ currentTarget: e }, index) => {
     dragItem.current = index;
-    console.log(e);
   };
 
   const handleDragEnter = ({ currentTarget: e }, index) => {
     dragOverItem.current = index;
-    console.log(e);
   };
 
   const handleDragEnd = () => {
@@ -92,7 +98,7 @@ function Homepage() {
 
   return (
     <>
-      <Header />
+      <Header theme={theme} onThemeClick={handleTheme} />
       <Searchbox onKeyDown={handleSearch} />
       <Board
         length={filteredData.length}

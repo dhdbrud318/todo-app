@@ -2,24 +2,27 @@
 $layout-breakpoint-mid: 45em;
 $layout-breakpoint-sm: 23.75em;
 
-// letter spacing
-$spacing-1: 1rem;
-
-// font-sizes
-
-$fs-lg: 2.5rem;
-$fs-rg: 1.125rem;
-$fs-sm: 0.875rem;
-
-$desktop-font-sizes: (
-  lg: 2.5rem,
-  rg: 1.125rem,
-  sm: 0.875rem,
+$breakpoints: (
+  mid: 45em,
+  sm: 23.75em,
 );
 
-$mobile-font-sizes: (
-  lg: 1.25rem,
-  rg: 0.75rem,
+// letter spacing
+$spacing-1: 0.75em;
+
+// font-sizes
+$h-font-sizes: (
+  null: 2.5rem,
+  sm: 1.625rem,
+);
+
+$p-font-sizes: (
+  null: 1.125rem,
+  sm: 0.75em,
+);
+
+$ft-font-sizes: (
+  null: 0.875rem,
   sm: 0.75rem,
 );
 

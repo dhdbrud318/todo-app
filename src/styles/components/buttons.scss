@@ -1,3 +1,11 @@
+.theme-btn {
+  cursor: pointer;
+
+  &:hover {
+    animation: pulse 0.3s ease-out forwards;
+  }
+}
+
 .status-btn {
   @include btn($weight: $fw-700, $hover: $main-txt, $active: $primary-blue);
 

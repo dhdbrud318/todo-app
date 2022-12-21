@@ -1,6 +1,8 @@
 // general setting
-@import "./general/variables.scss";
 @import "./general/colors.scss";
+@import "./utils/themes.scss";
+@import "./general/variables.scss";
+@import "./utils/mixin.scss";
 @import "./general/typography.scss";
 
 // Layouts
@@ -8,8 +10,8 @@
 @import "./layouts/app.scss";
 
 // utils
-@import "./utils/mixin.scss";
 @import "./utils/utils.scss";
+@import "./utils/animations.scss";
 
 // components
 @import "./components/header.scss";

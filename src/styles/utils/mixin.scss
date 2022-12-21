@@ -5,6 +5,45 @@
   size: cover;
 }
 
+@mixin themify() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    } @else {
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+
+      @media screen and (max-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}
+
 @mixin flex($direction: row, $gap: 0) {
   display: flex;
   flex-direction: $direction;
@@ -39,13 +78,11 @@
 }
 
 @mixin btn(
-  $font-size: #{$fs-sm},
   $color: #{$main-ele-txt},
   $weight: #{$fw-400},
   $hover,
   $active: #{$main-ele-txt}
 ) {
-  font-size: $font-size;
   color: $color;
   font-weight: $weight;
   cursor: pointer;

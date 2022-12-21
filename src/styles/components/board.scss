@@ -1,11 +1,12 @@
 .board {
   box-shadow: $box-shadow;
+  max-height: calc(25rem + $input-height);
 
   .board-body {
     border-radius: $general-border;
     overflow: hidden;
-    max-height: 25rem;
     overflow-y: scroll;
+    animation: deploy 3s forwards;
   }
 
   @media (max-width: $layout-breakpoint-sm) {
@@ -15,10 +16,11 @@
   }
 
   .board-footer {
+    @include font-size($ft-font-sizes);
+
     border-radius: $general-border;
 
     height: $input-height;
-    font-size: $fs-sm;
     background: $main-ele-bg;
 
     padding-inline: 1.5rem;

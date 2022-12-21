@@ -7,4 +7,37 @@ $main-ele-bg: hsl(0, 0%, 100%);
 $main-ele: hsl(236, 33%, 92%);
 $main-ele-txt: hsl(236, 9%, 61%);
 
+$themes-light: (
+  main-bg: hsl(0, 0%, 98%),
+  main-txt: hsl(235, 19%, 35%),
+  main-ele-bg: hsl(0, 0%, 100%),
+  main-ele: hsl(236, 33%, 92%),
+  main-ele-txt: hsl(236, 9%, 61%),
+);
+
+$themes-dark: (
+  main-bg: hsl(235, 21%, 11%),
+  main-txt: hsl(234, 39%, 85%),
+  main-ele-bg: hsl(235, 24%, 19%),
+  main-ele: hsl(233, 14%, 35%),
+  main-ele-txt: hsl(234, 11%, 52%),
+);
+
+$themes: (
+  light: (
+    main-bg: hsl(0, 0%, 98%),
+    main-txt: hsl(235, 19%, 35%),
+    main-ele-bg: hsl(0, 0%, 100%),
+    main-ele: hsl(236, 33%, 92%),
+    main-ele-txt: hsl(236, 9%, 61%),
+  ),
+  dark: (
+    main-bg: hsl(235, 21%, 11%),
+    main-txt: hsl(234, 39%, 85%),
+    main-ele-bg: hsl(235, 24%, 19%),
+    main-ele: hsl(233, 14%, 35%),
+    main-ele-txt: hsl(234, 11%, 52%),
+  ),
+);
+
 $box-shadow: 0 2rem 3rem -1rem hsla(235, 19%, 80%, 0.5);
