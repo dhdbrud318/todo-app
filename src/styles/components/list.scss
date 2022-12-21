@@ -1,6 +1,6 @@
 .list {
   @include inputcontainer;
-  border-bottom: 1px solid $main-ele;
+  border-bottom: 1px solid themed(light, main-ele);
 
   .list-container {
     @include elebase($padding: 0 1.5em 0 4em);
@@ -18,7 +18,7 @@
     transition: color ease-in-out 0.25s;
 
     &.completed {
-      color: $main-ele-txt;
+      color: themed(light, main-ele-txt);
       text-decoration-line: line-through;
     }
   }

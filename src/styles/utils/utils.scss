@@ -7,10 +7,16 @@
 }
 
 .App {
-  @include background("../../assets/images/bg-desktop-light.jpg");
+  @each $key in $themes-keys {
+    &.theme--#{$key} {
+      @include background($key);
+      background-color: themed($key, "main-bg");
+      color: themed($key, "main-txt");
 
-  @media (max-width: $layout-breakpoint-sm) {
-    @include background("../../assets/images/bg-mobile-light.jpg");
+      @media (max-width: map-get($breakpoints,sm)) {
+        @include background($key, true);
+      }
+    }
   }
 }
 
@@ -21,7 +27,7 @@ picture {
   display: block;
 }
 
-@media (max-width: $layout-breakpoint-sm) {
+@media (max-width: map-get($breakpoints,sm)) {
   img,
   svg {
     transform: scale(0.75);

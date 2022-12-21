@@ -21,7 +21,7 @@ const List = ({
 
   return (
     <div
-      className="list"
+      className="list bg-ele"
       draggable
       onDragStart={(e) => onDragStart(e, index)}
       onDragEnter={(e) => onDragEnter(e, index)}

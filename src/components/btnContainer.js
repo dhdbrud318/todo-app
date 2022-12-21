@@ -4,7 +4,7 @@ import TextButton from "./common/textButton";
 
 function BtnContainer({ labels, status, onStatusClick }) {
   return (
-    <div className="btn-container flex capitalize">
+    <div className="btn-container flex capitalize bg-ele box-shadow">
       {labels.map((label, index) => (
         <TextButton
           key={index}

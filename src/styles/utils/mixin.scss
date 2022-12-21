@@ -1,31 +1,16 @@
-@mixin background($path) {
+@mixin background($theme: light, $mobile: false) {
+  $path: "";
+
+  @if ($mobile == true) {
+    $path: "../../assets/images/bg-mobile-#{$theme}.jpg";
+  } @else {
+    $path: "../../assets/images/bg-desktop-#{$theme}.jpg";
+  }
+
   background-image: url($path);
   background-repeat: no-repeat;
   position: center;
   size: cover;
-}
-
-@mixin themify() {
-  @each $theme, $map in $themes {
-    .theme--#{$theme} & {
-      $theme-map: () !global;
-      @each $key, $submap in $map {
-        $value: map-get(map-get($themes, $theme), "#{$key}");
-        $theme-map: map-merge(
-          $theme-map,
-          (
-            $key: $value,
-          )
-        ) !global;
-      }
-      @content;
-      $theme-map: null !global;
-    }
-  }
-}
-
-@function themed($key) {
-  @return map-get($theme-map, $key);
 }
 
 @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
@@ -62,11 +47,10 @@
 
 @mixin elebase(
   $type: none,
-  $background: #{$main-ele-bg},
+
   $padding: 0 0 0 4em,
   $width: 100%
 ) {
-  background-color: $background;
   width: $width;
   height: $input-height;
   padding: $padding;
@@ -77,13 +61,7 @@
   }
 }
 
-@mixin btn(
-  $color: #{$main-ele-txt},
-  $weight: #{$fw-400},
-  $hover,
-  $active: #{$main-ele-txt}
-) {
-  color: $color;
+@mixin btn($weight: #{$fw-400}, $hover, $active: #{$primary-blue}) {
   font-weight: $weight;
   cursor: pointer;
   transition: color ease-in 0.2s;

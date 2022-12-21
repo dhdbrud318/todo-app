@@ -1,15 +1,47 @@
-.theme--light {
-  //   $main-bg: map-get($themes-light, "main-bg") !global;
-  //   $main-txt: map-get($themes-light, "main-txt") !global;
-  //   $main-ele-bg: map-get($themes-light, "main-ele-bg") !global;
-  //   $main-ele: map-get($themes-light, "main-ele") !global;
-  //   $main-ele-txt: map-get($themes-light, "main-ele-txt") !global;
+$themes-keys: (light, dark);
+
+@function themed($key, $attr) {
+  @return map-get(map-get($themes, $key), $attr);
 }
 
-.theme--dark {
-  //   $main-bg: map-get($themes-dark, "main-bg") !global;
-  //   $main-txt: map-get($themes-dark, "main-txt") !global;
-  //   $main-ele-bg: map-get($themes-dark, "main-ele-bg") !global;
-  //   $main-ele: map-get($themes-dark, "main-ele") !global;
-  //   $main-ele-txt: map-get($themes-dark, "main-ele-txt") !global;
+@each $key in $themes-keys {
+  .theme--#{$key} {
+    $main-bg: themed($key, main-bg);
+    $main-txt: themed($key, main-txt);
+    $main-ele-bg: themed($key, main-ele-bg);
+    $main-ele: themed($key, main-ele);
+    $main-ele-txt: themed($key, main-ele-txt);
+
+    .bg-main {
+      background-color: $main-bg;
+    }
+
+    .bg-ele {
+      background-color: $main-ele-bg;
+    }
+
+    .bg-ele-sub {
+      background-color: $main-ele;
+    }
+
+    .fc-main {
+      color: $main-txt;
+    }
+
+    .fc-ele {
+      color: $main-ele-txt;
+    }
+
+    .fc-ele-sub {
+      color: $main-ele;
+    }
+
+    input::placeholder {
+      color: $main-ele-txt;
+    }
+
+    .box-shadow {
+      box-shadow: 0 2rem 3rem -1rem themed($key, box-shadow);
+    }
+  }
 }

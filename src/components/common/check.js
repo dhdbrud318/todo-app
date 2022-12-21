@@ -1,7 +1,4 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircle as emptyCircle } from "@fortawesome/free-regular-svg-icons";
-import { faCircle as fullCircle } from "@fortawesome/free-solid-svg-icons";
 
 import { ReactComponent as CheckIcon } from "../../assets/images/icon-check.svg";
 
@@ -15,7 +12,11 @@ function Check({ id, status, onClick }) {
             : "check-border flex"
         }
       >
-        <CheckIcon className="check-icon" />
+        <CheckIcon
+          className={
+            status === "completed" ? "check-icon" : "check-icon invisible"
+          }
+        />
       </div>
     </button>
   );

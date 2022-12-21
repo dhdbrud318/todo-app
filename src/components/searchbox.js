@@ -5,7 +5,7 @@ import Check from "./common/check";
 
 function Searchbox({ onKeyDown }) {
   return (
-    <div className="searchbox container">
+    <div className="searchbox container bg-ele">
       <div className="flex">
         <Check />
         <input

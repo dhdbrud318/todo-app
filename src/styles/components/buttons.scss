@@ -7,7 +7,11 @@
 }
 
 .status-btn {
-  @include btn($weight: $fw-700, $hover: $main-txt, $active: $primary-blue);
+  @include btn(
+    $weight: $fw-700,
+    $hover: themed(light, "main-ele"),
+    $active: $primary-blue
+  );
 
   &.active {
     color: $primary-blue;
@@ -15,7 +19,7 @@
 }
 
 .clear-btn {
-  @include btn($hover: $main-txt);
+  @include btn($hover: themed(light, "main-ele-txt"));
 }
 
 .check-btn {
@@ -26,13 +30,13 @@
   left: 0;
   padding-left: 1.5rem;
   cursor: pointer;
+  transition: all ease-in-out 0.2s;
 
   .check-border {
     aspect-ratio: 1;
     width: 1.25em;
     border-radius: 50%;
-    border: 1px solid $main-ele;
-    transition: all ease-in-out 0.2s;
+    border: 1px solid themed(light, "main-ele");
 
     &.flex {
       @include flex;
@@ -40,7 +44,11 @@
     }
 
     &:hover {
-      background: linear-gradient($main-ele-bg, $main-ele-bg) padding-box,
+      background: linear-gradient(
+            themed(light, "main-ele-bg"),
+            themed(light, "main-ele-bg")
+          )
+          padding-box,
         linear-gradient($primary-hover) border-box;
       border: 1px solid transparent;
     }
@@ -74,7 +82,7 @@
     opacity: 1;
   }
 
-  @media (max-width: 45em) {
+  @media (max-width: map-get($breakpoints,mid)) {
     opacity: 1;
   }
 }
