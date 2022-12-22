@@ -51,7 +51,7 @@
       .btn-container {
         @include themify() {
           background-color: themified(main-ele-bg);
-          box-shadow: themified(box-shadow);
+          box-shadow: 0 2rem 3rem -1rem themified(box-shadow);
         }
 
         position: absolute;
