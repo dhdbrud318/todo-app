@@ -49,6 +49,11 @@
       z-index: 0;
 
       .btn-container {
+        @include themify() {
+          background-color: themified(main-ele-bg);
+          box-shadow: themified(box-shadow);
+        }
+
         position: absolute;
         top: 0;
         right: 0;
