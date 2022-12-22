@@ -40,7 +40,7 @@ function Homepage() {
       const newTodo = {
         todo: e.target.value,
         status: "active",
-        id: data.length.toString(),
+        id: data.length.toString() + "new",
       };
       const newData = [newTodo, ...data];
       setData(newData);
