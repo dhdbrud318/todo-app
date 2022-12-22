@@ -1,47 +1,43 @@
-$themes-keys: (light, dark);
+$themes: (
+  light: (
+    main-bg: hsl(0, 0%, 98%),
+    main-txt: hsl(235, 19%, 35%),
+    main-ele-bg: hsl(0, 0%, 100%),
+    main-ele: hsl(236, 33%, 92%),
+    main-ele-txt: hsl(236, 9%, 61%),
+    box-shadow: hsla(235, 19%, 80%, 0.5),
+    imgpath: light,
+  ),
+  dark: (
+    main-bg: hsl(235, 21%, 11%),
+    main-txt: hsl(234, 39%, 85%),
+    main-ele-bg: hsl(235, 24%, 19%),
+    main-ele-txt: hsl(233, 14%, 35%),
+    main-ele: hsl(234, 14%, 26%),
+    box-shadow: hsla(235, 24%, 19%, 0.5),
+    imgpath: dark,
+  ),
+);
 
-@function themed($key, $attr) {
-  @return map-get(map-get($themes, $key), $attr);
+@function themified($key) {
+  @return map-get($theme-map, $key);
 }
 
-@each $key in $themes-keys {
-  .theme--#{$key} {
-    $main-bg: themed($key, main-bg);
-    $main-txt: themed($key, main-txt);
-    $main-ele-bg: themed($key, main-ele-bg);
-    $main-ele: themed($key, main-ele);
-    $main-ele-txt: themed($key, main-ele-txt);
-
-    .bg-main {
-      background-color: $main-bg;
-    }
-
-    .bg-ele {
-      background-color: $main-ele-bg;
-    }
-
-    .bg-ele-sub {
-      background-color: $main-ele;
-    }
-
-    .fc-main {
-      color: $main-txt;
-    }
-
-    .fc-ele {
-      color: $main-ele-txt;
-    }
-
-    .fc-ele-sub {
-      color: $main-ele;
-    }
-
-    input::placeholder {
-      color: $main-ele-txt;
-    }
-
-    .box-shadow {
-      box-shadow: 0 2rem 3rem -1rem themed($key, box-shadow);
+@mixin themify($selector: "&") {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} #{$selector} {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
     }
   }
 }

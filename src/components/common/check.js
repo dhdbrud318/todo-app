@@ -2,7 +2,7 @@ import React from "react";
 
 import { ReactComponent as CheckIcon } from "../../assets/images/icon-check.svg";
 
-function Check({ id, status, onClick }) {
+function Check({ isCheckable = true, id, status, onClick }) {
   return (
     <button onClick={onClick} value={status} id={id} className="check-btn">
       <div
@@ -21,5 +21,11 @@ function Check({ id, status, onClick }) {
     </button>
   );
 }
+
+Check.defaultProps = {
+  id: null,
+  onClick: null,
+  status: null,
+};
 
 export default Check;

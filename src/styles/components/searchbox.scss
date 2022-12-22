@@ -1,5 +1,5 @@
 .searchbox {
-  @include inputcontainer;
+  @include positionRelative;
   border: 1px solid transparent;
   border-radius: $general-border;
   white-space: nowrap;
@@ -12,9 +12,8 @@
 
   input {
     @include elebase($type: input, $padding: 0 1.5em 0 4em);
+    @include themify("&::placeholder") {
+      color: themified(main-ele-txt);
+    }
   }
-
-  //   input::placeholder {
-  //     color: themed($theme-key-inside, main-ele-txt);
-  //   }
 }

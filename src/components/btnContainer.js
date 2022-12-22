@@ -1,5 +1,3 @@
-import React from "react";
-
 import TextButton from "./common/textButton";
 
 function BtnContainer({ labels, status, onStatusClick }) {

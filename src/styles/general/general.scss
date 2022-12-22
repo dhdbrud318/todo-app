@@ -6,16 +6,16 @@
   box-sizing: border-box;
 }
 
-.App {
-  @each $key in $themes-keys {
-    &.theme--#{$key} {
-      @include background($key);
-      background-color: themed($key, "main-bg");
-      color: themed($key, "main-txt");
+#root {
+  @include themify("") {
+    background-image: url("../../assets/images/bg-desktop-#{themified(imgpath)}.jpg");
+    background-color: themified(main-bg);
+    color: themified(main-txt);
+    background-repeat: no-repeat;
+    transition: background ease-in-out 0.15s;
 
-      @media (max-width: map-get($breakpoints,sm)) {
-        @include background($key, true);
-      }
+    @media (max-width: map-get($breakpoints, sm)) {
+      background-image: url("../../assets/images/bg-mobile-#{themified(imgpath)}.jpg");
     }
   }
 }

@@ -1,18 +1,3 @@
-@mixin background($theme: light, $mobile: false) {
-  $path: "";
-
-  @if ($mobile == true) {
-    $path: "../../assets/images/bg-mobile-#{$theme}.jpg";
-  } @else {
-    $path: "../../assets/images/bg-desktop-#{$theme}.jpg";
-  }
-
-  background-image: url($path);
-  background-repeat: no-repeat;
-  position: center;
-  size: cover;
-}
-
 @mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
   @each $fs-breakpoint, $fs-font-size in $fs-map {
     @if $fs-breakpoint == null {
@@ -41,16 +26,15 @@
   gap: $gap;
 }
 
-@mixin inputcontainer() {
+@mixin positionRelative() {
   position: relative;
 }
 
-@mixin elebase(
-  $type: none,
+@mixin elebase($type: none, $padding: 0 0 0 4em, $width: 100%) {
+  @include themify() {
+    background-color: themified(main-ele-bg);
+  }
 
-  $padding: 0 0 0 4em,
-  $width: 100%
-) {
   width: $width;
   height: $input-height;
   padding: $padding;
@@ -61,17 +45,25 @@
   }
 }
 
-@mixin btn($weight: #{$fw-400}, $hover, $active: #{$primary-blue}) {
+@mixin btn($weight: #{$fw-400}, $default: main-ele-txt, $hover, $active: none) {
   font-weight: $weight;
   cursor: pointer;
   transition: color ease-in 0.2s;
 
-  &:hover {
-    color: $hover;
-  }
+  @include themify() {
+    color: themified($default);
 
-  &:focus,
-  &:active {
-    color: $active;
+    &:hover {
+      color: themified($hover);
+    }
+
+    &:active,
+    &:focus {
+      @if $active == blue {
+        color: $primary-blue;
+      } @else {
+        color: themfied($active);
+      }
+    }
   }
 }

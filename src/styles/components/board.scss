@@ -1,12 +1,17 @@
 .board {
   border-radius: $general-border;
-  max-height: calc(25rem + $input-height);
+  // max-height: calc(25rem + $input-height);
+
+  @include themify() {
+    background: themified(main-ele-bg);
+    box-shadow: 0 2rem 3rem -1rem themified(box-shadow);
+  }
 
   .board-body {
     border-radius: $general-border;
     overflow: hidden;
     overflow-y: scroll;
-    animation: deploy 3s forwards;
+    max-height: 25rem;
   }
 
   @media (max-width: map-get($breakpoints,sm)) {

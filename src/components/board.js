@@ -1,5 +1,3 @@
-import React from "react";
-
 import TotalItems from "./common/total";
 import TextButton from "./common/textButton";
 import List from "./common/list";
@@ -20,7 +18,7 @@ function Board({
   const footerlabel = ["all", "active", "completed"];
 
   return (
-    <div className="board container bg-ele box-shadow">
+    <div className="board container">
       <div className="board-body">
         {data.length ? (
           data.map((item, index) => (
@@ -38,10 +36,10 @@ function Board({
             />
           ))
         ) : (
-          <List id={null} content="No Item Exists" exist={false} />
+          <List id={null} content="No Data to Display" exist={false} />
         )}
       </div>
-      <div className="board-footer flex fc-ele">
+      <div className="board-footer flex">
         <TotalItems left={length} />
         <BtnContainer
           labels={footerlabel}

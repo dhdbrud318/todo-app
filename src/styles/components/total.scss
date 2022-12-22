@@ -1,4 +1,8 @@
 .total {
+  @include themify() {
+    color: themified(main-ele-txt);
+  }
+
   .total-item {
     font-weight: $fw-700;
   }

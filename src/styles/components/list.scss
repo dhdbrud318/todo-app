@@ -1,6 +1,14 @@
 .list {
-  @include inputcontainer;
-  border-bottom: 1px solid themed(light, main-ele);
+  @include positionRelative;
+
+  @include themify() {
+    border-bottom: 1px solid themified(main-ele);
+
+    .completed {
+      color: themified(main-ele-txt);
+      text-decoration-line: line-through;
+    }
+  }
 
   .list-container {
     @include elebase($padding: 0 1.5em 0 4em);
@@ -16,10 +24,5 @@
     text-overflow: ellipsis;
     flex-basis: 90%;
     transition: color ease-in-out 0.25s;
-
-    &.completed {
-      color: themed(light, main-ele-txt);
-      text-decoration-line: line-through;
-    }
   }
 }
